@@ -71,7 +71,7 @@ About me
 
 Need a Creative Product? I can Help You!
 
-Hi! I’m Dani Reacher, and I’m a developer who has passion for building clean web applications with intuitive functionalities. I enjoy the process of turning ideas into reality using creative solutions. I’m always curious about learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have worked with creative teams, which involves daily stand-ups and communications, source control, and project management.
+Hi! I’m Daniyal Mazhar, and I’m a developer who has passion for building clean web applications with intuitive functionalities. I enjoy the process of turning ideas into reality using creative solutions. I’m always curious about learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have worked with creative teams, which involves daily stand-ups and communications, source control, and project management.
 
 Hire me
 
@@ -250,7 +250,7 @@ Send
 
 Dani.
 
-&copy; 2022 codewithsadee. All rights reserved
+&copy; 2025 daniyal-khokhar. All rights reserved
 
 
 
