@@ -9,7 +9,7 @@
   <br />
   <br />
   
-  <img src="./readme-images/project-logo.png" />
+  <img src="./readme-images/desktop.png" />
 
   <h2 align="center">Dani - Personal portfolio</h2>
 
