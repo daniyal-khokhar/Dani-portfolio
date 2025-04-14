@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jack - personal portfolio</title>
+  <title>Daniyal - personal portfolio</title>
 
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./favicon" type="image/svg+xml">
 
   <!-- 
     - custom css link
@@ -26,6 +26,51 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&family=Saira+Stencil+One&display=swap"
     rel="stylesheet">
 </head>
+<style>
+  .cloudy-bg {
+    position: relative;
+    width: 50%;
+    height: 50vh;
+    background: linear-gradient(to bottom, rgb(254, 212, 24) 0%,  transparent 100%);
+    overflow: hidden;
+    border-radius: 5% 90% 70% 20% / 10% 100% 10% 100%;
+  }
+  .cloud {
+    position: absolute;
+    top: 30px;
+    left: 20%;
+    width: 300px;
+    height: 100px;
+    background: white;
+    border-radius: 50px;
+    filter: blur(50px);
+    opacity: 0.4;
+  }
+
+  .cloud::before,
+  .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    filter: blur(30px);
+    opacity: 0.4;
+  }
+
+  .cloud::before {
+    width: 200px;
+    height: 100px;
+    top: -40px;
+    left: -100px;
+  }
+
+  .cloud::after {
+    width: 150px;
+    height: 80px;
+    top: -20px;
+    left: 120px;
+  }
+</style>
 
 <body id="top" class="dark_theme">
 
@@ -37,13 +82,14 @@
     <div class="container">
 
       <h1 class="h1 logo">
-        <a href="#">Jack<span>.</span></a>
+        <a href="#">Daniyal<span>.</span></a>
       </h1>
 
       <div class="navbar-actions">
 
         <select name="language" id="lang">
           <option value="en">En</option>
+          <option value="en">Ur</option>
           <option value="ar">Ar</option>
         </select>
 
@@ -101,18 +147,18 @@
 
       <section class="hero" id="home">
 
-        <figure class="hero-banner">
+        <figure class="hero-banner cloudy-bg">
 
           <picture>
-            <source srcset="./assets/images/hero-banner.png" media="(min-width: 768px)">
-            <source srcset="./assets/images/hero-banner-md.png" media="(min-width: 500px)">
-            <img src="./assets/images/hero-banner-sm.png" alt="A man in a blue shirt with a happy expression"
+            <source srcset="./assets/images/Pi7_Passport_Photo__3_-removebg-preview-removebg-preview.png" media="(min-width: 768px)">
+            <source srcset="./assets/images/Pi7_Passport_Photo__3_-removebg-preview-removebg-preview.png" media="(min-width: 500px)">
+            <img src="./assets/images/Pi7_Passport_Photo__3_-removebg-preview-removebg-preview.png" alt="A man in a blue shirt with a happy expression"
               class="w-100">
           </picture>
 
         </figure>
 
-        <div class="hero-content">
+        <div class="hero-content" style="margin-top: 10px;">
 
           <h2 class="h2 hero-title">We Design & Build Creative Products</h2>
 
@@ -123,10 +169,10 @@
         <ul class="hero-social-list">
 
           <li>
-            <a href="#" class="hero-social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="https://www.facebook.com/dani.khokhar3363" class="hero-social-link">
+              <ion-icon name="logo-facebook" href="https://www.facebook.com/dani.khokhar3363"></ion-icon>
 
-              <div class="tooltip">Facebook</div>
+              <div class="tooltip" >Facebook</div>
             </a>
           </li>
 
@@ -171,7 +217,7 @@
               </div>
 
               <h2 class="h2 card-title">
-                12+ <strong>Years of Experience</strong>
+                4+ <strong>Years of Experience</strong>
               </h2>
 
               <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -187,7 +233,7 @@
               </div>
 
               <h2 class="h2 card-title">
-                230+ <strong>Completed Projects</strong>
+                9+ <strong>Completed Projects</strong>
               </h2>
 
               <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -203,7 +249,7 @@
               </div>
 
               <h2 class="h2 card-title">
-                95+ <strong>Happy Clients</strong>
+                11+ <strong>Happy Clients</strong>
               </h2>
 
               <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -226,7 +272,7 @@
 
         <figure class="about-banner">
           <img src="./assets/images/about-banner.png" alt="A man in a alice blue shirt with a thinking expression"
-            class="w-100">
+            class="w-100" style="width: 500px; height: 500px;">
         </figure>
 
         <div class="about-content section-content">
@@ -236,7 +282,7 @@
           <h2 class="h3 section-title">Need a Creative Product? I can Help You!</h2>
 
           <p class="section-text">
-            Hi! I’m Jack Reacher, and I’m a developer who has passion for building clean web applications with intuitive
+            Hi! I’m M Daniyal Mazhar, and I’m a developer who has passion for building clean web applications with intuitive
             functionalities. I enjoy the process of turning ideas into reality using creative solutions. I’m always
             curious about
             learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have
@@ -245,9 +291,14 @@
           </p>
 
           <div class="btn-group">
+            <a href="#contact">
             <button class="btn btn-secondary">Hire me</button>
-
-            <button class="btn btn-primary">Download cv</button>
+          </a>
+            <!-- <button class="btn btn-primary">Download cv</button> -->
+            <a href="https://www.canva.com/design/DAGTP8TYvns/kEGeqnq2u-C2XF0h5qAQmg/view?utm_content=DAGTP8TYvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b42d2d36e" class="btn btn-primary" target="_blank" download="">
+              Download CV
+          </a>
+          
           </div>
 
         </div>
@@ -290,7 +341,7 @@
 
             <li>
               <div class="skill-card">
-                <div class="tooltip">HTML5</div>
+                <div class="tooltip">HTML</div>
 
                 <div class="card-icon">
                   <img src="./assets/images/html5.png" alt="HTML5 logo">
@@ -300,7 +351,7 @@
 
             <li>
               <div class="skill-card">
-                <div class="tooltip">CSS3</div>
+                <div class="tooltip">CSS</div>
 
                 <div class="card-icon">
                   <img src="./assets/images/css3.png" alt="CSS3 logo">
@@ -328,7 +379,7 @@
               </div>
             </li>
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">jQuery</div>
 
@@ -336,7 +387,7 @@
                   <img src="./assets/images/jquery.png" alt="jQuery logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
             <li>
               <div class="skill-card">
@@ -378,7 +429,7 @@
               </div>
             </li>
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">Firebase</div>
 
@@ -386,9 +437,9 @@
                   <img src="./assets/images/firebase.png" alt="Firebase logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">PugJs</div>
 
@@ -396,9 +447,9 @@
                   <img src="./assets/images/pugjs.png" alt="PugJs logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">SASS</div>
 
@@ -406,13 +457,13 @@
                   <img src="./assets/images/sass.png" alt="SASS logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
           </ul>
 
           <ul class="tools-list">
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">Ajax</div>
 
@@ -420,9 +471,9 @@
                   <img src="./assets/images/ajax.png" alt="Ajax logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">Gulp</div>
 
@@ -430,9 +481,9 @@
                   <img src="./assets/images/gulp.png" alt="Gulp logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">Webpack</div>
 
@@ -440,7 +491,7 @@
                   <img src="./assets/images/webpack.png" alt="Webpack logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
             <li>
               <div class="skill-card">
@@ -492,7 +543,7 @@
               </div>
             </li>
 
-            <li>
+            <!-- <li>
               <div class="skill-card">
                 <div class="tooltip">ClickUp</div>
 
@@ -500,7 +551,7 @@
                   <img src="./assets/images/clickup.png" alt="ClickUp logo">
                 </div>
               </div>
-            </li>
+            </li> -->
 
             <li>
               <div class="skill-card">
@@ -549,7 +600,6 @@
       <section class="project" id="portfolio">
 
         <ul class="project-list">
-
           <li>
             <div class="project-content section-content">
 
@@ -564,6 +614,22 @@
               </p>
 
             </div>
+          </li>
+          <li>
+            <a href="#" class="project-card">
+
+              <figure class="card-banner">
+                <img src="./assets/images/project-3.png" class="w-100"
+                  alt="A Cassette tape on a mellow apricot background.">
+              </figure>
+
+              <div class="card-content">
+                <h3 class="h4 card-title">Lorem Ipsum Dolor 03</h3>
+
+                <time class="publish-date" datetime="2022-04">April 2022</time>
+              </div>
+
+            </a>
           </li>
 
           <li>
@@ -602,46 +668,12 @@
             <a href="#" class="project-card">
 
               <figure class="card-banner">
-                <img src="./assets/images/project-3.png" class="w-100"
-                  alt="A Cassette tape on a mellow apricot background.">
-              </figure>
-
-              <div class="card-content">
-                <h3 class="h4 card-title">Lorem Ipsum Dolor 03</h3>
-
-                <time class="publish-date" datetime="2022-04">April 2022</time>
-              </div>
-
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="project-card">
-
-              <figure class="card-banner">
                 <img src="./assets/images/project-4.png" class="w-100"
                   alt="Blue digital watch on a dark liver background.">
               </figure>
 
               <div class="card-content">
                 <h3 class="h4 card-title">Lorem Ipsum Dolor 04</h3>
-
-                <time class="publish-date" datetime="2022-04">April 2022</time>
-              </div>
-
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="project-card">
-
-              <figure class="card-banner">
-                <img src="./assets/images/project-5.png" class="w-100"
-                  alt="On a dark liver background, Airport luggage car carrying a luggage.">
-              </figure>
-
-              <div class="card-content">
-                <h3 class="h4 card-title">Lorem Ipsum Dolor 05</h3>
 
                 <time class="publish-date" datetime="2022-04">April 2022</time>
               </div>
@@ -666,11 +698,63 @@
             </a>
           </li>
 
+
+          <li>
+            <a href="#" class="project-card">
+
+              <figure class="card-banner">
+                <img src="./assets/images/project-5.png" class="w-100"
+                  alt="On a dark liver background, Airport luggage car carrying a luggage.">
+              </figure>
+
+              <div class="card-content">
+                <h3 class="h4 card-title">Lorem Ipsum Dolor 05</h3>
+
+                <time class="publish-date" datetime="2022-04">April 2022</time>
+              </div>
+
+            </a>
+          </li>
+
           <li>
             <a href="#" class="project-card">
 
               <figure class="card-banner">
                 <img src="./assets/images/project-7.png" class="w-100"
+                  alt="A fujifilm instant camera on a dark electric blue background.">
+              </figure>
+
+              <div class="card-content">
+                <h3 class="h4 card-title">Lorem Ipsum Dolor 07</h3>
+
+                <time class="publish-date" datetime="2022-04">April 2022</time>
+              </div>
+
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="project-card">
+
+              <figure class="card-banner">
+                <img src="./assets/images/work9.png" class="w-100"
+                  alt="A fujifilm instant camera on a dark electric blue background.">
+              </figure>
+
+              <div class="card-content">
+                <h3 class="h4 card-title">Lorem Ipsum Dolor 07</h3>
+
+                <time class="publish-date" datetime="2022-04">April 2022</time>
+              </div>
+
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="project-card">
+
+              <figure class="card-banner">
+                <img src="./assets/images/project-444.png" class="w-100"
                   alt="A fujifilm instant camera on a dark electric blue background.">
               </figure>
 
@@ -723,7 +807,7 @@
                 <h3 class="h4 contact-item-title">Address:</h3>
 
                 <address class="contact-info">
-                  941 Saqrqorish Road, alandalos, grnata, wa 47122-4194
+                 Housing Colony Layyah, Pakistan
                 </address>
               </div>
 
@@ -738,9 +822,9 @@
               <div class="wrapper">
                 <h3 class="h4 contact-item-title">Phone:</h3>
 
-                <a href="tel:01234567789" class="contact-info">(01) 234 567 789</a>
+                <a href="tel:01234567789" class="contact-info">+92 301 6593363</a>
 
-                <a href="tel:09765432200" class="contact-info">(09) 765 432 200</a>
+                <!-- <a href="tel:09765432200" class="contact-info">+92 301 6593363</a> -->
               </div>
 
             </li>
@@ -754,9 +838,10 @@
               <div class="wrapper">
                 <h3 class="h4 contact-item-title">Email:</h3>
 
-                <a href="mailto:info@jack.com" class="contact-info">info@jack.com</a>
+                <a href="mailto:daniyalmazhar3363@gmail.com" class="contact-info">daniyalmazhar3363@gmail.com</a>
 
-                <a href="mailto:support@jack.com" class="contact-info">support@jack.com</a>
+                <a href="mailto:daniyalmzr0@gmail.com" class="contact-info">daniyalmzr0@gmail.com</a>
+
               </div>
 
             </li>
@@ -765,7 +850,7 @@
               <ul class="contac-social-list">
 
                 <li>
-                  <a href="#" class="contact-social-link">
+                  <a href="https://www.facebook.com/dani.khokhar3363" class="contact-social-link">
                     <div class="tooltip">Facebook</div>
 
                     <ion-icon name="logo-facebook"></ion-icon>
@@ -773,7 +858,7 @@
                 </li>
 
                 <li>
-                  <a href="#" class="contact-social-link">
+                  <a href="https://x.com/mdaniyalmzr" class="contact-social-link">
                     <div class="tooltip">Twitter</div>
 
                     <ion-icon name="logo-twitter"></ion-icon>
@@ -781,7 +866,7 @@
                 </li>
 
                 <li>
-                  <a href="#" class="contact-social-link">
+                  <a href="https://www.linkedin.com/in/muhammad-daniyal-mazhar-5548b9262/" class="contact-social-link">
                     <div class="tooltip">Linkedin</div>
 
                     <ion-icon name="logo-linkedin"></ion-icon>
@@ -885,7 +970,7 @@
 
       <p class="h1 logo">
         <a href="#">
-          Jack<span>.</span>
+          Daniyal<span>.</span>
         </a>
       </p>
 
