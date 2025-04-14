@@ -23,7 +23,7 @@
 
 ### Demo Screeshots
 
-![Dani Portfolio Desktop Demo](./readme-images/desktop.png "Desktop Demo")
+![Dani Portfolio Desktop Demo](./readme-images/project-logo.png "Desktop Demo")
 
 ### Prerequisites
 
