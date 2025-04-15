@@ -9,7 +9,7 @@
   <br />
   <br />
   
-  <img src="./readme-images/project-logo.png" />
+  <img src="./readme-images/project-logo" />
 
   <h2 align="center">Dani - Personal portfolio</h2>
 
@@ -23,7 +23,7 @@
 
 ### Demo Screeshots
 
-![Dani Portfolio Desktop Demo](./readme-images/desktop.png "Desktop Demo")
+![Dani Portfolio Desktop Demo](./readme-images/desktop "Desktop Demo")
 
 ### Prerequisites
 
@@ -44,7 +44,7 @@ sudo git clone https://github.com/codewithsadee/dani-portfolio.git
 Windows:
 
 ```bash
-git clone https://github.com/codewithsadee/dani-portfolio.git
+git clone https://github.com/daniyal-khokhar/dani-portfolio.git
 ```
 
 ### Contact
