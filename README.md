@@ -8,15 +8,13 @@
 
   <br />
   <br />
-
-  <img src="./readme-images/project-logo.png" />
   <img src="./readme-images/projectlogo" />
 
   <h2 align="center">Dani - Personal portfolio</h2>
 
   This website is fully responsive personal portfolio, <br />Responsive for all devices, built using HTML, CSS, and JavaScript.
 
-  <a href="https://daniyal-khokhar.github.io/dani-portfolio/index.html"><strong>➥ Live Demo</strong></a>
+  <a href="https://daniyal-khokhar.github.com/dani-portfolio/index.html"><strong>➥ Live Demo</strong></a>
 
 </div>
 
