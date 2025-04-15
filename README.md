@@ -14,7 +14,7 @@
 
   This website is fully responsive personal portfolio, <br />Responsive for all devices, built using HTML, CSS, and JavaScript.
 
-  <a href="https://daniyal-khokhar.github.com/dani-portfolio/index.html"><strong>➥ Live Demo</strong></a>
+  <a href="https://daniyal-khokhar.github.io/dani-portfolio-/"><strong>➥ Live Demo</strong></a>
 
 </div>
 
