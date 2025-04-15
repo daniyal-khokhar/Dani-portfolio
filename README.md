@@ -9,7 +9,15 @@
   <br />
   <br />
   
+<<<<<<< HEAD
   <img src="./readme-images/project-logo.png" />
+=======
+<<<<<<< HEAD
+  <img src="./readme-images/project-logo" />
+=======
+  <img src="./readme-images/desktop.png" />
+>>>>>>> d67409de94da5a4784812fc0e1b744dfff57cffa
+>>>>>>> c714727ea0e561fb8c3c0a723dfbef5eecf199f5
 
   <h2 align="center">Dani - Personal portfolio</h2>
 
@@ -23,7 +31,15 @@
 
 ### Demo Screeshots
 
+<<<<<<< HEAD
 ![Dani Portfolio Desktop Demo](./readme-images/desktop.png "Desktop Demo")
+=======
+<<<<<<< HEAD
+![Dani Portfolio Desktop Demo](./readme-images/desktop "Desktop Demo")
+=======
+![Dani Portfolio Desktop Demo](./readme-images/project-logo.png "Desktop Demo")
+>>>>>>> d67409de94da5a4784812fc0e1b744dfff57cffa
+>>>>>>> c714727ea0e561fb8c3c0a723dfbef5eecf199f5
 
 ### Prerequisites
 
