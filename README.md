@@ -10,7 +10,7 @@
   <br />
 
   <img src="./readme-images/project-logo.png" />
-  <img src="./readme-images/desktop.png" />
+  <img src="./readme-images/projectlogo" />
 
   <h2 align="center">Dani - Personal portfolio</h2>
 
