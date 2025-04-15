@@ -9,7 +9,7 @@
   <br />
   <br />
   
-  <img src="./readme-images/desktop.png" />
+  <img src="./readme-images/project-logo.png" />
 
   <h2 align="center">Dani - Personal portfolio</h2>
 
@@ -23,7 +23,7 @@
 
 ### Demo Screeshots
 
-![Dani Portfolio Desktop Demo](./readme-images/project-logo.png "Desktop Demo")
+![Dani Portfolio Desktop Demo](./readme-images/desktop.png "Desktop Demo")
 
 ### Prerequisites
 
