@@ -11,15 +11,8 @@
     - favicon
   -->
   <link rel="shortcut icon" href="./favicon" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -29,46 +22,94 @@
 <style>
   .cloudy-bg {
     position: relative;
-    width: 50%;
-    height: 50vh;
-    background: linear-gradient(to bottom, rgb(254, 212, 24) 0%,  transparent 100%);
+    width: 100%;
+    height: 100vh;
+    background-image: url('./assets/images/pexels-photo-4709285.WEBP');
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
-    border-radius: 5% 90% 70% 20% / 10% 100% 10% 100%;
+    margin-top: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .cloud {
+
+  .front_image {
     position: absolute;
-    top: 30px;
-    left: 20%;
-    width: 300px;
-    height: 100px;
-    background: white;
-    border-radius: 50px;
-    filter: blur(50px);
-    opacity: 0.4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.3;
   }
 
-  .cloud::before,
-  .cloud::after {
-    content: '';
+  .hero-content {
     position: absolute;
-    background: white;
-    border-radius: 100px;
-    filter: blur(30px);
-    opacity: 0.4;
+    z-index: 2;
+    text-align: center;
+    /* color: #fff; */
+    padding: 20px;
   }
 
-  .cloud::before {
-    width: 200px;
-    height: 100px;
-    top: -40px;
-    left: -100px;
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
 
-  .cloud::after {
-    width: 150px;
-    height: 80px;
-    top: -20px;
-    left: 120px;
+  .btn-primary {
+    background-color: #014921;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Responsive adjustments for small screens */
+  @media (max-width: 767px) {
+    .cloudy-bg {
+      background: none;
+      height: auto;
+      margin-top: 0;
+      flex-direction: column;
+    }
+
+    .front_image {
+      position: static;
+      width: 100%;
+      height: auto;
+      opacity: 1;
+    }
+
+     .hero-content {
+      position: static;
+      color: #000;
+      /* background-color: #fff; */
+      padding: 20px 10px;
+    } 
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  .hero-social-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .scroll-down {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #014921;
   }
 </style>
 
@@ -134,78 +175,46 @@
     </div>
   </header>
 
-
-
-
-
   <main>
     <article class="container">
-
-      <!-- 
-        - #HERO
-      -->
-
       <section class="hero" id="home">
-
         <figure class="hero-banner cloudy-bg">
-
-          <picture>
-            <source srcset="./assets/images/Pi7_Passport_Photo__3_-removebg-preview-removebg-preview.png" media="(min-width: 768px)">
-            <source srcset="./assets/images/Pi7_Passport_Photo__3_-removebg-preview-removebg-preview.png" media="(min-width: 500px)">
-            <img src="./assets/images/Pi7_Passport_Photo__3_-removebg-preview-removebg-preview.png" alt="A man in a blue shirt with a happy expression"
-              class="w-100">
-          </picture>
-
+          <img 
+            src="./assets/images/pexels-photo-4709291.WEBP" 
+            alt="Creative Banner Image" 
+            class="front_image"
+          >
+      
+          <div class="hero-content">
+            <h2 class="h2 hero-title">We Design & Build Creative Products</h2>
+            <a href="#contact" class="btn btn-primary">Get in touch</a>
+          </div>
         </figure>
-
-        <div class="hero-content" style="margin-top: 10px;">
-
-          <h2 class="h2 hero-title">We Design & Build Creative Products</h2>
-
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-
-        </div>
-
+      
         <ul class="hero-social-list">
-
           <li>
             <a href="https://www.facebook.com/dani.khokhar3363" class="hero-social-link">
-              <ion-icon name="logo-facebook" href="https://www.facebook.com/dani.khokhar3363"></ion-icon>
-
-              <div class="tooltip" >Facebook</div>
+              <ion-icon name="logo-facebook"></ion-icon>
+              <div class="tooltip">Facebook</div>
             </a>
           </li>
-
           <li>
             <a href="#" class="hero-social-link">
               <ion-icon name="logo-twitter"></ion-icon>
-
               <div class="tooltip">Twitter</div>
             </a>
           </li>
-
           <li>
-            <a href="https://www.linkedin.com/in/muhammad-daniyal-mazhar-5548b9262/"  class="hero-social-link">
+            <a href="https://www.linkedin.com/in/muhammad-daniyal-mazhar-5548b9262/" class="hero-social-link">
               <ion-icon name="logo-linkedin"></ion-icon>
-
               <div class="tooltip">Linkedin</div>
             </a>
           </li>
-
         </ul>
-
+      
         <a href="#stats" class="scroll-down">Scroll</a>
-
       </section>
-
-
-
-
-
-      <!-- 
-        - #STATS
-      -->
-
+      
       <section class="stats" id="stats">
         <ul class="stats-list">
 
@@ -234,7 +243,7 @@
 
               <h2 class="h2 card-title">
                 14+ <strong>Completed Projects</strong>
-              </h2> 
+              </h2>
 
               <ion-icon name="chevron-forward-outline"></ion-icon>
 
@@ -259,15 +268,6 @@
 
         </ul>
       </section>
-
-
-
-
-
-      <!-- 
-        - #ABOUT
-      -->
-
       <section class="about" id="about">
 
         <figure class="about-banner">
@@ -282,7 +282,8 @@
           <h2 class="h3 section-title">Need a Creative Product? I can Help You!</h2>
 
           <p class="section-text">
-            Hi! I’m M Daniyal Mazhar, and I’m a developer who has passion for building clean web applications with intuitive
+            Hi! I’m M Daniyal Mazhar, and I’m a developer who has passion for building clean web applications with
+            intuitive
             functionalities. I enjoy the process of turning ideas into reality using creative solutions. I’m always
             curious about
             learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have
@@ -292,27 +293,19 @@
 
           <div class="btn-group">
             <a href="#contact">
-            <button class="btn btn-secondary">Hire me</button>
-          </a>
+              <button class="btn btn-secondary">Hire me</button>
+            </a>
             <!-- <button class="btn btn-primary">Download cv</button> -->
-            <a href="https://www.canva.com/design/DAGTP8TYvns/kEGeqnq2u-C2XF0h5qAQmg/view?utm_content=DAGTP8TYvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b42d2d36e" class="btn btn-primary" target="_blank" download="">
+            <a href="https://www.canva.com/design/DAGTP8TYvns/kEGeqnq2u-C2XF0h5qAQmg/view?utm_content=DAGTP8TYvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b42d2d36e"
+              class="btn btn-primary" target="_blank" download="">
               Download CV
-          </a>
-          
+            </a>
+
           </div>
 
         </div>
 
       </section>
-
-
-
-
-
-      <!-- 
-        - #SKILLS
-      -->
-
       <section class="skills" id="skills">
 
         <div class="skills-content section-content">
@@ -378,17 +371,6 @@
                 </div>
               </div>
             </li>
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">jQuery</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/jquery.png" alt="jQuery logo">
-                </div>
-              </div>
-            </li> -->
-
             <li>
               <div class="skill-card">
                 <div class="tooltip">Bootstrap</div>
@@ -428,71 +410,9 @@
                 </div>
               </div>
             </li>
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">Firebase</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/firebase.png" alt="Firebase logo">
-                </div>
-              </div>
-            </li> -->
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">PugJs</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/pugjs.png" alt="PugJs logo">
-                </div>
-              </div>
-            </li> -->
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">SASS</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/sass.png" alt="SASS logo">
-                </div>
-              </div>
-            </li> -->
-
           </ul>
 
           <ul class="tools-list">
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">Ajax</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/ajax.png" alt="Ajax logo">
-                </div>
-              </div>
-            </li> -->
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">Gulp</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/gulp.png" alt="Gulp logo">
-                </div>
-              </div>
-            </li> -->
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">Webpack</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/webpack.png" alt="Webpack logo">
-                </div>
-              </div>
-            </li> -->
-
             <li>
               <div class="skill-card">
                 <div class="tooltip">Git</div>
@@ -542,17 +462,6 @@
                 </div>
               </div>
             </li>
-
-            <!-- <li>
-              <div class="skill-card">
-                <div class="tooltip">ClickUp</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/clickup.png" alt="ClickUp logo">
-                </div>
-              </div>
-            </li> -->
-
             <li>
               <div class="skill-card">
                 <div class="tooltip">Slack</div>
@@ -588,15 +497,6 @@
         </div>
 
       </section>
-
-
-
-
-
-      <!-- 
-        - #PROJECTS
-      -->
-
       <section class="project" id="portfolio">
 
         <ul class="project-list">
@@ -760,28 +660,13 @@
 
               <div class="card-content">
                 <h3 class="h4 card-title">Site university of South PUnjab</h3>
-
                 <time class="publish-date" datetime="2022-04">April 2023</time>
               </div>
-
             </a>
           </li>
 
-          <!-- <li>
-            <button class="load-more">Load more work</button>
-          </li> -->
-
         </ul>
-
       </section>
-
-
-
-
-
-      <!-- 
-        - #CONTACT
-      -->
 
       <section class="contact" id="contact">
 
@@ -807,7 +692,7 @@
                 <h3 class="h4 contact-item-title">Address:</h3>
 
                 <address class="contact-info">
-                 Housing Colony Layyah, Pakistan
+                  Housing Colony Layyah, Pakistan
                 </address>
               </div>
 
@@ -956,15 +841,6 @@
 
     </article>
   </main>
-
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
   <footer class="footer">
     <div class="container">
 
@@ -977,34 +853,13 @@
       <p class="copyright">
         &copy; 2025 <a href="#">daniyal-khokhar</a>. All rights reserved
       </p>
-
     </div>
   </footer>
-
-
-
-
-
-  <!-- 
-    - #GO TO TOP
-  -->
 
   <a href="#top" class="go-top" data-go-top title="Go to Top">
     <ion-icon name="arrow-up"></ion-icon>
   </a>
-
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
