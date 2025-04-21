@@ -654,5 +654,54 @@
   <script src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+  <script>
+  (function() {
+    emailjs.init("a_VEEL2-5pi7hnNa5"); // ← apna user ID yahan dalna
+  })();
+  </script> -->
+  <!-- Add this in your <head> or before closing </body> tag -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("a_VEEL2-5pi7hnNa5"); // Replace with your actual public key
+  })();
+</script>
+
+  <script>
+    // document.getElementById('contactForm').addEventListener('submit', function(e) {
+    //   e.preventDefault();
+  
+    //   emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', this)
+    //     .then(function(response) {
+    //       alert('Message sent successfully!');
+    //       document.getElementById('contactForm').reset(); // Reset form
+    //     }, function(error) {
+    //       alert('Failed to send message. Try again.');
+    //       console.error(error);
+    //     });
+    // });
+    window.addEventListener("DOMContentLoaded", function () {
+  // Now DOM is ready
+  const form = document.querySelector(".contact-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', this)
+      emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', this)
+        .then(function(response) {
+          alert('Message sent successfully!');
+          document.getElementById('contactForm').reset(); // Reset form
+        }, function(error) {
+          alert('Failed to send message. Try again.');
+          console.error(error);
+        });
+    
+    });
+  }
+});
+
+  </script>  
 </body>
 </html>
