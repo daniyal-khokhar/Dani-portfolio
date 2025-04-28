@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +28,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .front_image {
     position: absolute;
     top: 0;
@@ -37,17 +39,20 @@
     z-index: 1;
     opacity: 0.1;
   }
+
   .hero-content {
     position: absolute;
     z-index: 2;
     text-align: center;
     padding: 20px;
   }
+
   .hero-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 10px;
   }
+
   .btn-primary {
     background-color: #014921;
     color: white;
@@ -57,6 +62,7 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
   @media (max-width: 1100px) {
     .cloudy-bg {
       background: none;
@@ -75,7 +81,6 @@
     .hero-content {
       position: static;
       color: #000;
-      /* background-color: #fff; */
       padding: 20px 10px;
     }
 
@@ -83,50 +88,63 @@
       font-size: 1.8rem;
     }
   }
+
   .scroll-down {
     display: block;
     text-align: center;
     margin-top: 30px;
     color: #014921;
   }
+
   @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  to {
+
+  .about {
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.9s;
+  }
+
+  .about-banner {
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.9s;
+  }
+
+  .about-content {
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.9s;
+  }
+
+  .hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+  }
+
+  .show {
     opacity: 1;
     transform: translateY(0);
   }
-}
 
-.about {
-  opacity: 0;
-  animation: fadeInUp 1s ease-in-out forwards;
-  animation-delay: 0.9s;
-}
-.about-banner {
-  animation: fadeInUp 1s ease-in-out forwards;
-  animation-delay: 0.9s;
-}
-
-.about-content {
-  animation: fadeInUp 1s ease-in-out forwards;
-  animation-delay: 0.9s;
-}
-.hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-in-out;
-}
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+  #sendButton:hover {
+    background-color: hsl(24, 74%, 64%);
+    color: #fff;
+    border: 1px solid #999;
+    cursor: pointer;
+  }
 </style>
+
 <body id="top" class="dark_theme">
-<header class="header" data-header>
+  <header class="header" data-header>
     <div class="container">
       <h1 class="h1 logo">
         <a href="#">Daniyal<span>.</span></a>
@@ -171,10 +189,11 @@
     <article class="container">
       <section class="hero" id="home">
         <figure class="hero-banner cloudy-bg">
-          <img src="./assets/images/fc633ab7-5d0f-4b14-94fc-b62605c486b9.jpg" alt="Creative Banner Image" class="front_image">
+          <img src="./assets/images/fc633ab7-5d0f-4b14-94fc-b62605c486b9.jpg" alt="Creative Banner Image"
+            class="front_image">
           <div class="hero-content">
             <h2 class="h2 hero-title">We Design & Build Creative Products</h2>
-            <a href="#contact" class="btn btn-primary">Get in touch</a>
+            <a href="#contact" class="btn btn-primary" id="sendButton">Get in touch</a>
           </div>
         </figure>
         <ul class="hero-social-list">
@@ -196,7 +215,7 @@
               <div class="tooltip">Linkedin</div>
             </a>
           </li>
-     </section>
+      </section>
       <section class="stats" id="stats">
         <ul class="stats-list">
           <li>
@@ -252,11 +271,11 @@
             creative teams, which involves daily stand-ups and communications, source control, and project management.
           </p>
           <div class="btn-group">
-            <a href="#contact" class="btn btn-primary">
+            <a href="#contact" class="btn btn-primary" id="sendButton">
               Hire me
             </a>
             <a href="https://www.canva.com/design/DAGTP8TYvns/kEGeqnq2u-C2XF0h5qAQmg/view?utm_content=DAGTP8TYvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b42d2d36e"
-              class="btn btn-primary" target="_blank" download="">
+              class="btn btn-primary" id="sendButton" target="_blank" download="">
               Download CV
             </a>
           </div>
@@ -600,26 +619,28 @@
             </li>
           </ul>
         </div>
-        <form action="" class="contact-form">
+        <form class="contact-form" id="contact-form">
           <div class="form-wrapper">
             <label for="name" class="form-label">Name</label>
             <div class="input-wrapper">
-              <input type="text" name="name" id="name" required placeholder="e.g John Doe" class="input-field">
+              <input type="text" name="user_name" id="name" required placeholder="e.g John Doe" class="input-field">
               <ion-icon name="person-circle"></ion-icon>
             </div>
           </div>
+
           <div class="form-wrapper">
             <label for="email" class="form-label">Email</label>
             <div class="input-wrapper">
-              <input type="email" name="email" id="email" required placeholder="e.g johndoe@mail.com"
+              <input type="email" name="user_email" id="email" required placeholder="e.g johndoe@mail.com"
                 class="input-field">
               <ion-icon name="mail"></ion-icon>
             </div>
           </div>
+
           <div class="form-wrapper">
             <label for="phone" class="form-label">Phone</label>
             <div class="input-wrapper">
-              <input type="tel" name="phone" id="phone" required placeholder="Phone Number" class="input-field">
+              <input type="tel" name="user_phone" id="phone" required placeholder="Phone Number" class="input-field">
               <ion-icon name="call"></ion-icon>
             </div>
           </div>
@@ -631,7 +652,7 @@
               <ion-icon name="chatbubbles"></ion-icon>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="submit" class="btn btn-primary" id="sendButton">Send</button>
         </form>
       </section>
     </article>
@@ -654,42 +675,32 @@
   <script src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <!-- <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-  (function() {
-    emailjs.init("a_VEEL2-5pi7hnNa5"); // ← apna user ID yahan dalna
-  })();
-  </script> -->
-  <!-- Add this in your <head> or before closing </body> tag -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function(){
-    emailjs.init("a_VEEL2-5pi7hnNa5"); // Replace with your actual public key
-  })();
-</script>
-
-  <script>
+    (function () {
+      emailjs.init("a_VEEL2-5pi7hnNa5");
+    })();
     window.addEventListener("DOMContentLoaded", function () {
-  // Now DOM is ready
-  const form = document.querySelector(".contact-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+      const form = document.getElementById("contact-form");
 
-      // emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', this)
-      emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', this)
-        .then(function(response) {
-          alert('Message sent successfully!');
-          document.getElementById('contactForm').reset(); // Reset form
-        }, function(error) {
-          alert('Failed to send message. Try again.');
-          console.error(error);
-        });
-    
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const emailData = {
+          user_name: document.getElementById("name").value,
+          user_email: document.getElementById("email").value,
+          user_phone: document.getElementById("phone").value,
+          message: document.getElementById("message").value
+        };
+        emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', form)
+          .then(function (response) {
+            alert('Message sent successfully! Thank you.');
+            form.reset();
+          }, function (error) {
+            alert('Failed to send message. Please try again.');
+            console.error('FAILED...', error);
+          });
+      });
     });
-  }
-});
-
-  </script>  
+  </script>
 </body>
 </html>
