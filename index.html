@@ -1,199 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniyal - personal portfolio</title>
-  <link rel="shortcut icon" href="./favicon" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Daniyal - Full Stack Developer Portfolio</title>
+  <link rel="shortcut icon" href="#" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&family=Saira+Stencil+One&display=swap"
-    rel="stylesheet">
-</head>
-<style>
-  .cloudy-bg {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url('./assets/images/fc633ab7-5d0f-4b14-94fc-b62605c486b9.jpg');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    margin-top: 7%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .front_image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    opacity: 0.1;
-  }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c15;
+      color: #eef5ff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
-  .hero-content {
-    position: absolute;
-    z-index: 2;
-    text-align: center;
-    padding: 20px;
-  }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1a1f2e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ff6b3d;
+      border-radius: 10px;
+    }
 
-  .hero-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
 
-  .btn-primary {
-    background-color: #014921;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 12, 21, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 107, 61, 0.2);
+    }
 
-  @media (max-width: 1100px) {
-    .cloudy-bg {
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #ff6b3d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #ff6b3d, #ff9a5a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .navbar-list {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .navbar-link {
+      color: #b9c7d9;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .navbar-link:hover {
+      color: #ff6b3d;
+    }
+
+    /* theme button now inside navbar-list as list item */
+    .navbar-list .theme-item {
+      display: flex;
+      align-items: center;
+      margin-left: 0;
+    }
+
+    .theme-btn {
+      background: #1e2438;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: 0.3s;
+      color: #ffd966;
+    }
+
+    .theme-btn:hover {
+      background: #ff6b3d;
+      transform: scale(1.05);
+      color: white;
+    }
+
+    .nav-toggle-btn {
+      display: none;
       background: none;
-      height: auto;
-      margin-top: 0;
-      flex-direction: column;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 850px) {
+      .navbar {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #0f1222;
+        padding: 30px;
+        border-top: 1px solid #ff6b3d30;
+        z-index: 1000;
+      }
+      .navbar.active {
+        display: block;
+      }
+      .navbar-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+      .navbar-list .theme-item {
+        margin-left: 0;
+      }
+      .nav-toggle-btn {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 130px;
+      padding-bottom: 60px;
+    }
+
+    .cloudy-bg {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      background: linear-gradient(135deg, #0f1222 0%, #141b2b 100%);
+      border-radius: 40px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
     }
 
     .front_image {
-      position: static;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      opacity: 1;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+      opacity: 0.25;
     }
 
     .hero-content {
-      position: static;
-      color: #000;
-      padding: 20px 10px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px;
+      max-width: 800px;
     }
 
     .hero-title {
-      font-size: 1.8rem;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, #ff9a5a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-  }
 
-  .scroll-down {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    color: #014921;
-  }
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b3d, #ff8c5a);
+      color: white;
+      border: none;
+      padding: 14px 38px;
+      margin-top: 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      transition: 0.3s;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(255, 107, 61, 0.3);
+    }
 
-  @keyframes fadeInUp {
-    from {
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(255, 107, 61, 0.4);
+    }
+
+    @media (max-width: 1100px) {
+      .cloudy-bg {
+        min-height: 400px;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .front_image {
+        opacity: 0.3;
+      }
+    }
+
+    /* Hero Social List */
+    .hero-social-list {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+      list-style: none;
+    }
+
+    .hero-social-link {
+      background: #1e2438;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff9a5a;
+      font-size: 24px;
+      transition: 0.3s;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .hero-social-link:hover {
+      background: #ff6b3d;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .hero-social-link .tooltip {
+      position: absolute;
+      bottom: -30px;
+      background: #1e2438;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      white-space: nowrap;
       opacity: 0;
-      transform: translateY(30px);
+      transition: 0.2s;
+      pointer-events: none;
     }
 
-    to {
+    .hero-social-link:hover .tooltip {
       opacity: 1;
-      transform: translateY(0);
+      bottom: -40px;
     }
-  }
 
-  .about {
-    opacity: 0;
-    animation: fadeInUp 1s ease-in-out forwards;
-    animation-delay: 0.9s;
-  }
+    /* Stats Section */
+    .stats {
+      margin: 60px 0;
+    }
 
-  .about-banner {
-    animation: fadeInUp 1s ease-in-out forwards;
-    animation-delay: 0.9s;
-  }
+    .stats-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      list-style: none;
+    }
 
-  .about-content {
-    animation: fadeInUp 1s ease-in-out forwards;
-    animation-delay: 0.9s;
-  }
+    .stats-card {
+      background: #12172f;
+      padding: 30px 35px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 107, 61, 0.2);
+      min-width: 240px;
+    }
 
-  .hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease-in-out;
-  }
+    .stats-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff6b3d;
+      box-shadow: 0 20px 30px -15px rgba(255, 107, 61, 0.2);
+    }
 
-  .show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    .stats-card .card-icon img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
 
-  #sendButton:hover {
-    background-color: hsl(24, 74%, 64%);
-    color: #fff;
-    border: 1px solid #999;
-    cursor: pointer;
-  }
-</style>
+    .card-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+    }
 
-<body id="top" class="dark_theme">
+    .card-title strong {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #b9c7d9;
+      display: block;
+    }
+
+    /* About Section - FULLY MOBILE RESPONSIVE */
+    .about {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      margin: 80px 0;
+      flex-wrap: wrap;
+    }
+
+    .about-banner {
+      flex: 1;
+      min-width: 250px;
+      max-width: 450px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);
+    }
+
+    .about-banner img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
+      transition: 0.5s;
+    }
+
+    .about-banner:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-content {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .section-subtitle {
+      color: #ff6b3d;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .section-text {
+      color: #b9c7d9;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Skills Section */
+    .skills {
+      margin: 80px 0;
+    }
+
+    .skills-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .skills-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .toggle-btn {
+      background: #1e2438;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 40px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-btn.active {
+      background: linear-gradient(135deg, #ff6b3d, #ff8c5a);
+      color: white;
+      box-shadow: 0 5px 15px rgba(255, 107, 61, 0.3);
+    }
+
+    .skills-box {
+      margin-top: 30px;
+    }
+
+    .skills-list, .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .tools-list {
+      display: none;
+    }
+
+    .skill-card {
+      background: #12172f;
+      padding: 18px 16px;
+      border-radius: 24px;
+      text-align: center;
+      width: 100px;
+      transition: 0.3s;
+      border: 1px solid #232a41;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff6b3d;
+    }
+
+    .skill-card .card-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 55px;
+    }
+
+    .skill-card .card-icon img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .skill-card .tooltip {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #ff9a5a;
+    }
+
+    /* Project Section */
+    .project {
+      margin: 80px 0;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      list-style: none;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: #12172f;
+      border-radius: 28px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 1px solid #232a41;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff6b3d;
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+    }
+
+    .card-banner {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .project-card:hover .card-banner img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .project-card .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .publish-date {
+      font-size: 0.75rem;
+      color: #8f9bb3;
+    }
+
+    /* Contact Section */
+    .contact {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, #0f1222, #11172b);
+      border-radius: 48px;
+      padding: 50px;
+      margin: 80px 0;
+    }
+
+    .contact-content {
+      flex: 1;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 35px;
+    }
+
+    .contact-list-item {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .contact-item-icon ion-icon {
+      font-size: 28px;
+      color: #ff6b3d;
+    }
+
+    .contact-item-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .contact-info {
+      color: #b9c7d9;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .contact-info:hover {
+      color: #ff6b3d;
+    }
+
+    .contac-social-list {
+      display: flex;
+      gap: 18px;
+      margin-top: 20px;
+      list-style: none;
+    }
+
+    .contact-social-link {
+      background: #1e2438;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #ff9a5a;
+      transition: 0.3s;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .contact-social-link:hover {
+      background: #ff6b3d;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-field {
+      width: 100%;
+      background: #0a0e1c;
+      border: 1px solid #2a324b;
+      padding: 14px 20px;
+      border-radius: 28px;
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #ff6b3d;
+    }
+
+    .input-wrapper ion-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ff9a5a;
+      font-size: 18px;
+    }
+
+    textarea.input-field {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    textarea + ion-icon {
+      top: 20px;
+      transform: none;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 45px 0 35px;
+      border-top: 1px solid #1f253d;
+      margin-top: 20px;
+    }
+
+    .copyright {
+      color: #7f8aa8;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .copyright a {
+      color: #ff6b3d;
+      text-decoration: none;
+    }
+
+    .go-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ff6b3d;
+      padding: 12px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: 0.3s;
+      z-index: 99;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .go-top:hover {
+      transform: translateY(-5px);
+      background: #ff8c5a;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about, .about-banner, .about-content, .stats-card, .project-card {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* Mobile responsive for about and overall */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .contact {
+        padding: 30px;
+      }
+      .about {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+      }
+      .about-content {
+        text-align: center;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .about-banner {
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      .skill-card {
+        width: 85px;
+        padding: 12px;
+      }
+      .skill-card .card-icon img {
+        width: 40px;
+        height: 40px;
+      }
+      .stats-card {
+        padding: 20px 25px;
+        min-width: 200px;
+      }
+      .stats-card .card-icon img {
+        width: 45px;
+        height: 45px;
+      }
+      .card-title {
+        font-size: 1.6rem;
+      }
+    }
+
+    .btn-loader {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #fff;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      display: inline-block;
+      animation: spin 0.6s linear infinite;
+      margin-left: 8px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body id="top">
   <header class="header" data-header>
     <div class="container">
-      <h1 class="h1 logo">
+      <h1 class="logo">
         <a href="#">Daniyal<span>.</span></a>
       </h1>
-      <div class="navbar-actions">
-        <select name="language" id="lang">
-          <option value="en">En</option>
-          <option value="en">Ur</option>
-          <option value="ar">Ar</option>
-        </select>
-        <button class="theme-btn" aria-label="Change Theme" title="Change Theme" data-theme-btn>
-          <span class="icon"></span>
-        </button>
-      </div>
-      <button class="nav-toggle-btn" aria-label="Toggle Menu" title="Toggle Menu" data-nav-toggle-btn>
-        <span class="one"></span>
-        <span class="two"></span>
-        <span class="three"></span>
-      </button>
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
-          <li>
-            <a href="#home" class="navbar-link">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="navbar-link">About</a>
-          </li>
-          <li>
-            <a href="#skills" class="navbar-link">Skills</a>
-          </li>
-          <li>
-            <a href="#portfolio" class="navbar-link">Portfolio</a>
-          </li>
-          <li>
-            <a href="#contact" class="navbar-link">Contact</a>
-          </li>
+          <li><a href="#home" class="navbar-link">Home</a></li>
+          <li><a href="#about" class="navbar-link">About</a></li>
+          <li><a href="#skills" class="navbar-link">Skills</a></li>
+          <li><a href="#portfolio" class="navbar-link">Portfolio</a></li>
+          <li><a href="#contact" class="navbar-link">Contact</a></li>
+          <!-- Moon button now placed as list item, perfectly aligned with other navbar links -->
+          <!-- <li class="theme-item">
+            <button class="theme-btn" aria-label="Change Theme" data-theme-btn>🌙</button>
+          </li> -->
+          <!-- Mobile toggle button also placed alongside but we keep separate for toggling menu, we add hamburger icon inside container but not inside ul for better semantic. However we keep hamburger outside the list for standard header behavior -->
         </ul>
       </nav>
+      <!-- Add hamburger button outside navbar for mobile but inside container for correct layout -->
+      <button class="nav-toggle-btn" aria-label="Toggle Menu" data-nav-toggle-btn>☰</button>
     </div>
   </header>
+
   <main>
-    <article class="container">
+    <div class="container">
+      <!-- Hero Section -->
       <section class="hero" id="home">
-        <figure class="hero-banner cloudy-bg">
-          <img src="./assets/images/fc633ab7-5d0f-4b14-94fc-b62605c486b9.jpg" alt="Creative Banner Image"
-            class="front_image">
+        <figure class="cloudy-bg">
+          <img src="./assets/images/fc633ab7-5d0f-4b14-94fc-b62605c486b9.jpg" alt="Creative Banner" class="front_image" onerror="this.src='https://picsum.photos/id/104/1200/600'">
           <div class="hero-content">
-            <h2 class="h2 hero-title">We Design & Build Creative Products</h2>
-            <a href="#contact" class="btn btn-primary" id="sendButton">Get in touch</a>
+            <h2 class="hero-title">We Design & Build Creative Products</h2>
+            <a href="#contact" class="btn btn-primary">Get in touch</a>
           </div>
         </figure>
         <ul class="hero-social-list">
@@ -204,9 +854,9 @@
             </a>
           </li>
           <li>
-            <a href="#" class="hero-social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-              <div class="tooltip">Twitter</div>
+            <a href="https://github.com/daniyal-khokhar" class="hero-social-link">
+              <ion-icon name="logo-github"></ion-icon>
+              <div class="tooltip">GitHub</div>
             </a>
           </li>
           <li>
@@ -215,492 +865,319 @@
               <div class="tooltip">Linkedin</div>
             </a>
           </li>
-      </section>
-      <section class="stats" id="stats">
-        <ul class="stats-list">
-          <li>
-            <a href="#" class="stats-card">
-              <div class="card-icon">
-                <img src="./assets/images/stats-card_icon-1.png" alt="Badge icon">
-              </div>
-              <h2 class="h2 card-title">
-                4+ <strong>Years of Experience</strong>
-              </h2>
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="stats-card">
-              <div class="card-icon">
-                <img src="./assets/images/stats-card_icon-2.png" alt="Checkmark icon">
-              </div>
-              <h2 class="h2 card-title">
-                14+ <strong>Completed Projects</strong>
-              </h2>
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="stats-card">
-              <div class="card-icon">
-                <img src="./assets/images/stats-card_icon-3.png" alt="Peoples rating icon">
-              </div>
-              <h2 class="h2 card-title">
-                20+ <strong>Happy Clients</strong>
-              </h2>
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </a>
-          </li>
         </ul>
       </section>
+
+      <!-- Stats Section -->
+      <section class="stats" id="stats">
+  <ul class="stats-list">
+
+    <!-- Experience -->
+    <li>
+      <a href="#" class="stats-card">
+        <div class="card-icon">
+          <img src="./assets/images/stats-card_icon-1.png" alt="Experience">
+        </div>
+        <h2 class="card-title">4+ <strong>Years of Experience</strong></h2>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </li>
+
+    <!-- Projects -->
+    <li>
+      <a href="#" class="stats-card">
+        <div class="card-icon">
+          <img src="./assets/images/stats-card_icon-2.png" alt="Projects">
+        </div>
+        <h2 class="card-title">14+ <strong>Projects Delivered</strong></h2>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </li>
+
+    <!-- New Stat (No Clients) -->
+    <li>
+      <a href="#" class="stats-card">
+        <div class="card-icon">
+          <img src="./assets/images/stats-card_icon-3.png" alt="Work">
+        </div>
+        <h2 class="card-title">50+ <strong>Tasks Completed</strong></h2>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </li>
+
+  </ul>
+</section>
+
+      <!-- About Section (Fully Responsive) -->
       <section class="about" id="about">
-        <figure class="about-banner">
-          <img src="./assets/images/about-banner.png" alt="A man in a alice blue shirt with a thinking expression"
-            class="w-100" style="max-width: 100%; height: auto;">
-        </figure>
         <div class="about-content section-content">
           <p class="section-subtitle">About me</p>
-          <h2 class="h3 section-title">Need a Creative Product? I can Help You!</h2>
+          <h2 class="section-title">Need a Creative Product? I can Help You!</h2>
           <p class="section-text">
-            Hi! I’m M Daniyal Mazhar, and I’m a developer who has passion for building clean web applications with
-            intuitive
-            functionalities. I enjoy the process of turning ideas into reality using creative solutions. I’m always
-            curious about
-            learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have
-            worked with
-            creative teams, which involves daily stand-ups and communications, source control, and project management.
+            Hi! I'm M Daniyal Mazhar, and I'm a developer who has passion for building clean web applications with intuitive functionalities. I enjoy the process of turning ideas into reality using creative solutions. I'm always curious about learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have worked with creative teams, which involves daily stand-ups and communications, source control, and project management.
           </p>
           <div class="btn-group">
-            <a href="#contact" class="btn btn-primary" id="sendButton">
-              Hire me
-            </a>
-            <a href="https://www.canva.com/design/DAGTP8TYvns/kEGeqnq2u-C2XF0h5qAQmg/view?utm_content=DAGTP8TYvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b42d2d36e"
-              class="btn btn-primary" id="sendButton" target="_blank" download="">
-              Download CV
-            </a>
+            <a href="#contact" class="btn btn-primary">Hire me</a>
+            <a href="https://www.canva.com/design/DAGTP8TYvns/kEGeqnq2u-C2XF0h5qAQmg/view?utm_content=DAGTP8TYvns&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b42d2d36e" class="btn btn-primary" target="_blank">Download CV</a>
           </div>
         </div>
+        <figure class="about-banner">
+          <img src="./assets/images/WhatsApp Image 2026-04-01 at 9.05.29 PM.jpeg" alt="Daniyal profile" onerror="this.src='https://picsum.photos/id/100/450/500'">
+        </figure>
       </section>
+
+      <!-- Skills Section with Toggle -->
       <section class="skills" id="skills">
         <div class="skills-content section-content">
           <p class="section-subtitle">My skills</p>
-          <h2 class="h3 section-title">What My Programming Skills Included?</h2>
-          <p class="section-text">
-            I develop simple, intuitive and responsive user interface that helps users get things done with less effort
-            and time
-            with those technologies.
-          </p>
-          <div class="skills-toggle" data-toggle-box>
-            <button class="toggle-btn active" data-toggle-btn>Skills</button>
-            <button class="toggle-btn" data-toggle-btn>Tools</button>
+          <h2 class="section-title">What My Programming Skills Included?</h2>
+          <p class="section-text">I develop simple, intuitive and responsive user interface that helps users get things done with less effort and time with those technologies.</p>
+          <div class="skills-toggle">
+            <button class="toggle-btn active" id="skillsBtn" data-toggle="skills">Skills</button>
+            <button class="toggle-btn" id="toolsBtn" data-toggle="tools">Tools</button>
           </div>
         </div>
-        <div class="skills-box" data-skills-box>
-          <ul class="skills-list">
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">HTML</div>
-                <div class="card-icon">
-                  <img src="./assets/images/html5.png" alt="HTML5 logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">CSS</div>
-                <div class="card-icon">
-                  <img src="./assets/images/css3.png" alt="CSS3 logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">JavaScript</div>
-                <div class="card-icon">
-                  <img src="./assets/images/javascript.png" alt="JavaScript logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">TypeScript</div>
-                <div class="card-icon">
-                  <img src="./assets/images/typescript.png" alt="TypeScript logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Bootstrap</div>
-                <div class="card-icon">
-                  <img src="./assets/images/bootstrap.png" alt="Bootstrap logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Angular</div>
-                <div class="card-icon">
-                  <img src="./assets/images/angular.png" alt="Angular logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">React</div>
-                <div class="card-icon">
-                  <img src="./assets/images/react.png" alt="React logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Vue</div>
-                <div class="card-icon">
-                  <img src="./assets/images/vue.png" alt="Vue logo">
-                </div>
-              </div>
-            </li>
+        <div class="skills-box">
+          <ul class="skills-list" id="skillsList">
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/html5.png" alt="HTML5"></div><div class="tooltip">HTML</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/css3.png" alt="CSS3"></div><div class="tooltip">CSS</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/javascript.png" alt="JS"></div><div class="tooltip">JavaScript</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/typescript.png" alt="TS"></div><div class="tooltip">TypeScript</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/bootstrap.png" alt="Bootstrap"></div><div class="tooltip">Bootstrap</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/angular.png" alt="Angular"></div><div class="tooltip">Angular</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/react.png" alt="React"></div><div class="tooltip">React</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/vue.png" alt="Vue"></div><div class="tooltip">Vue</div></div></li>
           </ul>
-          <ul class="tools-list">
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Git</div>
-                <div class="card-icon">
-                  <img src="./assets/images/git.png" alt="Git logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Npm</div>
-                <div class="card-icon">
-                  <img src="./assets/images/npm.png" alt="Npm logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Command Line</div>
-                <div class="card-icon">
-                  <img src="./assets/images/command.png" alt="Command Line logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">VS Code</div>
-                <div class="card-icon">
-                  <img src="./assets/images/vs-code.png" alt="VS Code logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Trello</div>
-                <div class="card-icon">
-                  <img src="./assets/images/trello.png" alt="Trello logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Slack</div>
-                <div class="card-icon">
-                  <img src="./assets/images/slack.png" alt="Slack logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Photoshop</div>
-                <div class="card-icon">
-                  <img src="./assets/images/photoshop.png" alt="Photoshop logo">
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Adobe XD</div>
-                <div class="card-icon">
-                  <img src="./assets/images/adobe-xd.png" alt="Adobe XD logo">
-                </div>
-              </div>
-            </li>
+          <ul class="tools-list" id="toolsList">
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/git.png" alt="Git"></div><div class="tooltip">Git</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/npm.png" alt="Npm"></div><div class="tooltip">Npm</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/command.png" alt="CLI"></div><div class="tooltip">Command Line</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/vs-code.png" alt="VSCode"></div><div class="tooltip">VS Code</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/trello.png" alt="Trello"></div><div class="tooltip">Trello</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/slack.png" alt="Slack"></div><div class="tooltip">Slack</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/photoshop.png" alt="PS"></div><div class="tooltip">Photoshop</div></div></li>
+            <li><div class="skill-card"><div class="card-icon"><img src="./assets/images/adobe-xd.png" alt="XD"></div><div class="tooltip">Adobe XD</div></div></li>
           </ul>
         </div>
       </section>
+
+      <!-- Portfolio Section -->
       <section class="project" id="portfolio">
+        <div class="project-content section-content">
+          <p class="section-subtitle">My Works</p>
+          <h2 class="section-title">See My Works Which Will Amaze You!</h2>
+          <p class="section-text">We develop the best quality website that serves for the long-term. Well-documented, clean, easy and elegant interface helps any non-technical clients.</p>
+        </div>
         <ul class="project-list">
-          <li>
-            <div class="project-content section-content">
-              <p class="section-subtitle">My Works</p>
-              <h2 class="h3 section-title">See My Works Which Will Amaze You!</h2>
-              <p class="section-text">
-                We develop the best quality website that serves for the long-term. Well-documented, clean, easy and
-                elegant interface
-                helps any non-technical clients.
-              </p>
-            </div>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-3.png" class="w-100"
-                  alt="A Cassette tape on a mellow apricot background.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Login Screen UI</h3>
-                <time class="publish-date" datetime="2022-04">Complete reponsive login pages </time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-1.png" class="w-100" alt="A macintosh on a yellow background.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">MY youtube Playlist</h3>
-                <time class="publish-date" datetime="2022-04">works in rest API,s integration, feb 2025</time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-2.png" class="w-100" alt="On a Blue background, a Wacom and a mouse.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Quick wrap gifts UI work</h3>
-                <time class="publish-date" datetime="2022-04">April 2023</time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-4.png" class="w-100"
-                  alt="Blue digital watch on a dark liver background.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Weybridge Travelling Site UI </h3>
-                <time class="publish-date" datetime="2022-04">Full and responsive design</time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-6.png" class="w-100"
-                  alt="On a yellow background, a digital watch and a glass.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Tripadvisor Site</h3>
-                <time class="publish-date" datetime="2022-04">NOV 2023</time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-5.png" class="w-100"
-                  alt="On a dark liver background, Airport luggage car carrying a luggage.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Finest Quality UI work</h3>
-                <time class="publish-date" datetime="2022-04">December 2024</time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-7.png" class="w-100"
-                  alt="A fujifilm instant camera on a dark electric blue background.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Site university of South PUnjab</h3>
-                <time class="publish-date" datetime="2022-04">works in rest API,s integration and UI designing</time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/work9.png" class="w-100"
-                  alt="A fujifilm instant camera on a dark electric blue background.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">BItsBuffer.com</h3>
-                <time class="publish-date" datetime="2022-04">The Company site </time>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="project-card">
-              <figure class="card-banner">
-                <img src="./assets/images/project-444.png" class="w-100"
-                  alt="A fujifilm instant camera on a dark electric blue background.">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Site university of South PUnjab</h3>
-                <time class="publish-date" datetime="2022-04">April 2023</time>
-              </div>
-            </a>
-          </li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-3.png" alt="Login UI"></figure><div class="card-content"><h3 class="card-title">Login Screen UI</h3><time class="publish-date">Complete reponsive login pages</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-1.png" alt="Youtube Playlist"></figure><div class="card-content"><h3 class="card-title">MY youtube Playlist</h3><time class="publish-date">works in rest API,s integration, feb 2025</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-2.png" alt="Gifts UI"></figure><div class="card-content"><h3 class="card-title">Quick wrap gifts UI work</h3><time class="publish-date">April 2023</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-4.png" alt="Travelling Site"></figure><div class="card-content"><h3 class="card-title">Weybridge Travelling Site UI</h3><time class="publish-date">Full and responsive design</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-6.png" alt="Tripadvisor"></figure><div class="card-content"><h3 class="card-title">Tripadvisor Site</h3><time class="publish-date">NOV 2023</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-5.png" alt="Quality UI"></figure><div class="card-content"><h3 class="card-title">Finest Quality UI work</h3><time class="publish-date">December 2024</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-7.png" alt="University Project"></figure><div class="card-content"><h3 class="card-title">Site university of South Punjab</h3><time class="publish-date">works in rest API,s integration and UI designing</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/work9.png" alt="BitsBuffer"></figure><div class="card-content"><h3 class="card-title">BItsBuffer.com</h3><time class="publish-date">The Company site</time></div></a></li>
+          <li><a href="#" class="project-card"><figure class="card-banner"><img src="./assets/images/project-444.png" alt="University South"></figure><div class="card-content"><h3 class="card-title">Site university of South Punjab</h3><time class="publish-date">April 2023</time></div></a></li>
         </ul>
       </section>
+
+      <!-- Contact Section -->
       <section class="contact" id="contact">
         <div class="contact-content section-content">
           <p class="section-subtitle">Contact</p>
-          <h2 class="h3 section-title">Have You Any Project? Please Drop a Message</h2>
-          <p class="section-text">
-            Get in touch and let me know how i can help. Fill out the form and i’ll be in touch as soon as possible.
-          </p>
+          <h2 class="section-title">Have You Any Project? Please Drop a Message</h2>
+          <p class="section-text">Get in touch and let me know how i can help. Fill out the form and i'll be in touch as soon as possible.</p>
           <ul class="contact-list">
-            <li class="contact-list-item">
-              <div class="contact-item-icon">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-              <div class="wrapper">
-                <h3 class="h4 contact-item-title">Address:</h3>
-                <address class="contact-info">
-                  Housing Colony Layyah, Pakistan
-                </address>
-              </div>
-            </li>
-            <li class="contact-list-item">
-              <div class="contact-item-icon">
-                <ion-icon name="call-outline"></ion-icon>
-              </div>
-              <div class="wrapper">
-                <h3 class="h4 contact-item-title">Phone:</h3>
-                <a href="tel:01234567789" class="contact-info">+92 301 6593363</a>
-              </div>
-            </li>
-            <li class="contact-list-item">
-              <div class="contact-item-icon">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-              <div class="wrapper">
-                <h3 class="h4 contact-item-title">Email:</h3>
-                <a href="mailto:daniyalmazhar3363@gmail.com" class="contact-info">daniyalmazhar3363@gmail.com</a>
-                <a href="mailto:daniyalmzr0@gmail.com" class="contact-info">daniyalmzr0@gmail.com</a>
-              </div>
-            </li>
-            <li>
-              <ul class="contac-social-list">
-                <li>
-                  <a href="https://www.facebook.com/dani.khokhar3363" class="contact-social-link">
-                    <div class="tooltip">Facebook</div>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://x.com/mdaniyalmzr" class="contact-social-link">
-                    <div class="tooltip">Twitter</div>
-                    <ion-icon name="logo-twitter"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/in/muhammad-daniyal-mazhar-5548b9262/" class="contact-social-link">
-                    <div class="tooltip">Linkedin</div>
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="contact-social-link">
-                    <div class="tooltip">Youtube</div>
-                    <ion-icon name="logo-youtube"></ion-icon>
-                  </a>
-                </li>
-              </ul>
-            </li>
+            <li class="contact-list-item"><div class="contact-item-icon"><ion-icon name="location-outline"></ion-icon></div><div class="wrapper"><h3 class="contact-item-title">Address:</h3><address class="contact-info">Housing Colony Layyah, Pakistan</address></div></li>
+            <li class="contact-list-item"><div class="contact-item-icon"><ion-icon name="call-outline"></ion-icon></div><div class="wrapper"><h3 class="contact-item-title">Phone:</h3><a href="tel:01234567789" class="contact-info">+92 301 6593363</a></div></li>
+            <li class="contact-list-item"><div class="contact-item-icon"><ion-icon name="mail-outline"></ion-icon></div><div class="wrapper"><h3 class="contact-item-title">Email:</h3><a href="mailto:daniyalmazhar3363@gmail.com" class="contact-info">daniyalmazhar3363@gmail.com</a><br><a href="mailto:daniyalmzr0@gmail.com" class="contact-info">daniyalmzr0@gmail.com</a></div></li>
+            <li><ul class="contac-social-list"><li><a href="https://www.facebook.com/dani.khokhar3363" class="contact-social-link"><ion-icon name="logo-facebook"></ion-icon></a></li><li><a href="https://github.com/daniyal-khokhar" class="contact-social-link"><ion-icon name="logo-github"></ion-icon></a></li><li><a href="https://www.linkedin.com/in/muhammad-daniyal-mazhar-5548b9262/" class="contact-social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+              <!-- <li><a href="#" class="contact-social-link"><ion-icon name="logo-youtube"></ion-icon></a></li> -->
+            </ul></li>
           </ul>
         </div>
         <form class="contact-form" id="contact-form">
-          <div class="form-wrapper">
-            <label for="name" class="form-label">Name</label>
-            <div class="input-wrapper">
-              <input type="text" name="user_name" id="name" required placeholder="e.g John Doe" class="input-field">
-              <ion-icon name="person-circle"></ion-icon>
-            </div>
-          </div>
-
-          <div class="form-wrapper">
-            <label for="email" class="form-label">Email</label>
-            <div class="input-wrapper">
-              <input type="email" name="user_email" id="email" required placeholder="e.g johndoe@mail.com"
-                class="input-field">
-              <ion-icon name="mail"></ion-icon>
-            </div>
-          </div>
-
-          <div class="form-wrapper">
-            <label for="phone" class="form-label">Phone</label>
-            <div class="input-wrapper">
-              <input type="tel" name="user_phone" id="phone" required placeholder="Phone Number" class="input-field">
-              <ion-icon name="call"></ion-icon>
-            </div>
-          </div>
-          <div class="form-wrapper">
-            <label for="message" class="form-label">Message</label>
-            <div class="input-wrapper">
-              <textarea name="message" id="message" required placeholder="Write message..."
-                class="input-field"></textarea>
-              <ion-icon name="chatbubbles"></ion-icon>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary" id="sendButton">Send</button>
+          <div class="form-wrapper"><label class="form-label">Name</label><div class="input-wrapper"><input type="text" name="user_name" id="name" required placeholder="e.g John Doe" class="input-field"><ion-icon name="person-circle"></ion-icon></div></div>
+          <div class="form-wrapper"><label class="form-label">Email</label><div class="input-wrapper"><input type="email" name="user_email" id="email" required placeholder="e.g johndoe@mail.com" class="input-field"><ion-icon name="mail"></ion-icon></div></div>
+          <div class="form-wrapper"><label class="form-label">Phone</label><div class="input-wrapper"><input type="tel" name="user_phone" id="phone" required placeholder="Phone Number" class="input-field"><ion-icon name="call"></ion-icon></div></div>
+          <div class="form-wrapper"><label class="form-label">Message</label><div class="input-wrapper"><textarea name="message" id="message" required placeholder="Write message..." class="input-field"></textarea><ion-icon name="chatbubbles"></ion-icon></div></div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            <span class="btn-text">Send</span>
+            <span class="btn-loader" style="display: none;"></span>
+          </button>
         </form>
       </section>
-    </article>
+    </div>
   </main>
+
   <footer class="footer">
     <div class="container">
-      <p class="h1 logo">
-        <a href="#">
-          Daniyal<span>.</span>
-        </a>
-      </p>
-      <p class="copyright">
-        &copy; 2025 <a href="#">daniyal-khokhar</a>. All rights reserved
-      </p>
+      <p class="logo"><a href="#">Daniyal<span>.</span></a></p>
+      <p class="copyright">&copy; 2025 <a href="#">daniyal-khokhar</a>. All rights reserved</p>
     </div>
   </footer>
-  <a href="#top" class="go-top" data-go-top title="Go to Top">
-    <ion-icon name="arrow-up"></ion-icon>
-  </a>
-  <script src="./assets/js/script.js"></script>
+  <a href="#top" class="go-top" data-go-top><ion-icon name="arrow-up"></ion-icon></a>
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    (function () {
+    // Skills & Tools Toggle Functionality
+    const skillsBtn = document.getElementById('skillsBtn');
+    const toolsBtn = document.getElementById('toolsBtn');
+    const skillsList = document.getElementById('skillsList');
+    const toolsList = document.getElementById('toolsList');
+
+    skillsBtn.addEventListener('click', () => {
+      skillsBtn.classList.add('active');
+      toolsBtn.classList.remove('active');
+      skillsList.style.display = 'flex';
+      toolsList.style.display = 'none';
+    });
+
+    toolsBtn.addEventListener('click', () => {
+      toolsBtn.classList.add('active');
+      skillsBtn.classList.remove('active');
+      skillsList.style.display = 'none';
+      toolsList.style.display = 'flex';
+    });
+
+    // Navbar Toggle for mobile
+    const navToggleBtn = document.querySelector('[data-nav-toggle-btn]');
+    const navbar = document.querySelector('[data-navbar]');
+    if(navToggleBtn) {
+      navToggleBtn.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+      });
+    }
+
+    // Theme toggle (moon/sun) with proper background transitions
+    const themeBtn = document.querySelector('[data-theme-btn]');
+    let isDark = true;
+    themeBtn.addEventListener('click', () => {
+  if(isDark) {
+    document.body.style.background = '#f4f7fc';
+    document.body.style.color = '#111';
+    themeBtn.innerHTML = '☀️';
+
+    document.querySelectorAll('.stats-card, .skill-card, .project-card').forEach(el => {
+      el.style.background = '#ffffff';
+      el.style.borderColor = '#dde3ef';
+    });
+    document.querySelectorAll('.contact').forEach(el => {
+      el.style.background = '#ffffff';
+    });
+    document.querySelectorAll('.navbar, .header').forEach(el => {
+      el.style.background = 'rgba(244, 247, 252, 0.97)';
+    });
+
+    // Text fixes for light mode
+    document.querySelectorAll('.navbar-link').forEach(el => el.style.color = '#333');
+    document.querySelectorAll('.section-text, .section-subtitle').forEach(el => el.style.color = '#444');
+    document.querySelectorAll('.card-title strong').forEach(el => el.style.color = '#555');
+    document.querySelectorAll('.publish-date').forEach(el => el.style.color = '#666');
+    document.querySelectorAll('.contact-info').forEach(el => el.style.color = '#444');
+    document.querySelectorAll('.copyright').forEach(el => el.style.color = '#555');
+    document.querySelectorAll('.form-label').forEach(el => el.style.color = '#333');
+    document.querySelectorAll('.input-field').forEach(el => {
+      el.style.background = '#fff';
+      el.style.color = '#111';
+      el.style.borderColor = '#ccc';
+    });
+    document.querySelectorAll('.contact-item-title').forEach(el => el.style.color = '#222');
+    document.querySelectorAll('address.contact-info').forEach(el => el.style.color = '#444');
+    document.querySelectorAll('.toggle-btn:not(.active)').forEach(el => {
+      el.style.background = '#dde3ef';
+      el.style.color = '#333';
+    });
+    document.querySelectorAll('.hero-social-link, .contact-social-link').forEach(el => {
+      el.style.background = '#dde3ef';
+    });
+    document.querySelector('.cloudy-bg').style.background = 'linear-gradient(135deg, #dce4f0, #e8edf8)';
+
+  } else {
+    document.body.style.background = '#0a0c15';
+    document.body.style.color = '#eef5ff';
+    themeBtn.innerHTML = '🌙';
+
+    document.querySelectorAll('.stats-card, .skill-card, .project-card').forEach(el => {
+      el.style.background = '#12172f';
+      el.style.borderColor = '#232a41';
+    });
+    document.querySelectorAll('.contact').forEach(el => {
+      el.style.background = 'linear-gradient(135deg, #0f1222, #11172b)';
+    });
+    document.querySelectorAll('.navbar, .header').forEach(el => {
+      el.style.background = 'rgba(10, 12, 21, 0.95)';
+    });
+
+    // Revert text to dark mode
+    document.querySelectorAll('.navbar-link').forEach(el => el.style.color = '#b9c7d9');
+    document.querySelectorAll('.section-text, .section-subtitle').forEach(el => el.style.color = '');
+    document.querySelectorAll('.card-title strong').forEach(el => el.style.color = '#b9c7d9');
+    document.querySelectorAll('.publish-date').forEach(el => el.style.color = '#8f9bb3');
+    document.querySelectorAll('.contact-info').forEach(el => el.style.color = '#b9c7d9');
+    document.querySelectorAll('.copyright').forEach(el => el.style.color = '#7f8aa8');
+    document.querySelectorAll('.form-label').forEach(el => el.style.color = '');
+    document.querySelectorAll('.input-field').forEach(el => {
+      el.style.background = '#0a0e1c';
+      el.style.color = 'white';
+      el.style.borderColor = '#2a324b';
+    });
+    document.querySelectorAll('.contact-item-title').forEach(el => el.style.color = '');
+    document.querySelectorAll('address.contact-info').forEach(el => el.style.color = '#b9c7d9');
+    document.querySelectorAll('.toggle-btn:not(.active)').forEach(el => {
+      el.style.background = '#1e2438';
+      el.style.color = 'white';
+    });
+    document.querySelectorAll('.hero-social-link, .contact-social-link').forEach(el => {
+      el.style.background = '#1e2438';
+    });
+    document.querySelector('.cloudy-bg').style.background = 'linear-gradient(135deg, #0f1222 0%, #141b2b 100%)';
+  }
+  isDark = !isDark;
+});
+
+    // EmailJS + Form Submission
+    (function() {
       emailjs.init("a_VEEL2-5pi7hnNa5");
     })();
-    window.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("contact-form");
+    
+    const form = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("submitBtn");
+    const btnTextSpan = submitBtn.querySelector(".btn-text");
+    const loaderSpan = submitBtn.querySelector(".btn-loader");
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const emailData = {
-          user_name: document.getElementById("name").value,
-          user_email: document.getElementById("email").value,
-          user_phone: document.getElementById("phone").value,
-          message: document.getElementById("message").value
-        };
-        emailjs.sendForm('service_0x72crt', 'template_y8jhpkx', form)
-          .then(function (response) {
-            alert('Message sent successfully! Thank you.');
-            form.reset();
-          }, function (error) {
-            alert('Failed to send message. Please try again.');
-            console.error('FAILED...', error);
-          });
-      });
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      btnTextSpan.textContent = "Sending...";
+      loaderSpan.style.display = "inline-block";
+
+      emailjs.sendForm('service_lsz73ql', 'template_y8jhpkx', form)
+        .then(function(response) {
+          alert('Message sent successfully! Thank you.');
+          form.reset();
+          submitBtn.disabled = false;
+          btnTextSpan.textContent = "Send";
+          loaderSpan.style.display = "none";
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+          console.error('FAILED...', error);
+          submitBtn.disabled = false;
+          btnTextSpan.textContent = "Send";
+          loaderSpan.style.display = "none";
+        });
     });
-  </script>
+
+    // Smooth scroll & go-top
+    const goTopBtn = document.querySelector('[data-go-top]');
+    if(goTopBtn) {
+      goTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+</script>
 </body>
 </html>
