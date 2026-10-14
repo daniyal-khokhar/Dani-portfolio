@@ -36,8 +36,8 @@ body{font-family:'Inter',sans-serif;color:#eef5ff;overflow-x:hidden;background:r
 }
 
 /* Hero */
-.hero{padding-top:130px;padding-bottom:60px}
-.cloudy-bg{position:relative;isolation:isolate;width:100%;min-height:560px;border-radius:40px;overflow:hidden;display:flex;align-items:center;justify-content:center;perspective:1000px;background:radial-gradient(ellipse at 50% 45%,rgba(36,78,164,.35),transparent 52%),linear-gradient(135deg,#090e20,#101a32 58%,#08121f);border:1px solid rgba(109,156,255,.22);box-shadow:0 30px 90px rgba(0,0,0,.38),inset 0 0 70px rgba(45,109,230,.08)}
+.hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);padding:0}
+.cloudy-bg{position:relative;isolation:isolate;width:100%;min-height:100vh;min-height:100svh;padding:90px 0 110px;border-radius:0;overflow:hidden;display:flex;align-items:center;justify-content:center;perspective:1000px;background:radial-gradient(ellipse at 50% 45%,rgba(36,78,164,.35),transparent 52%),linear-gradient(135deg,#090e20,#101a32 58%,#08121f);box-shadow:inset 0 0 120px rgba(45,109,230,.1)}
 .front_image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;opacity:.1;filter:saturate(.6) hue-rotate(15deg)}
 #three-hero{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .hero-content{position:relative;z-index:3;text-align:center;padding:40px;max-width:800px;transform-style:preserve-3d;animation:heroEnter 1s cubic-bezier(.2,.75,.2,1) both}
@@ -73,7 +73,7 @@ body{font-family:'Inter',sans-serif;color:#eef5ff;overflow-x:hidden;background:r
 .eye.r img{left:5.4%;top:-1.3%;height:94.9%}
 
 /* Hero social */
-.hero-social-list{display:flex;justify-content:center;gap:25px;margin-top:40px;list-style:none}
+.hero-social-list{position:absolute;left:0;right:0;bottom:34px;z-index:5;display:flex;justify-content:center;gap:25px;list-style:none}
 .hero-social-link,.contact-social-link{background:#1e2438;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#8db5ff;transition:.3s;position:relative;text-decoration:none;border:1px solid rgba(110,154,255,.16);box-shadow:0 8px 25px rgba(0,0,0,.15)}
 .hero-social-link{width:48px;height:48px;font-size:24px}
 .contact-social-link{width:44px;height:44px;font-size:22px}
@@ -170,7 +170,7 @@ textarea+ion-icon{top:20px;transform:none}
 @keyframes heroEnter{from{opacity:0;transform:translateY(22px) rotateX(4deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes nameGlow{0%,100%{opacity:.45;transform:scaleX(.65)}50%{opacity:1;transform:scaleX(1)}}
-@keyframes codeDrift{from{transform:translateY(-5%) rotate(0);opacity:0}12%{opacity:.85}85%{opacity:.7}to{transform:translateY(760px) rotate(2deg);opacity:0}}
+@keyframes codeDrift{from{transform:translateY(-5%) rotate(0);opacity:0}12%{opacity:.85}85%{opacity:.7}to{transform:translateY(125vh) rotate(2deg);opacity:0}}
 @keyframes devFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
 @keyframes ringSpin{to{transform:rotate(360deg)}}
 @keyframes skillSpin{0%,62%{transform:perspective(700px) rotateY(0)}100%{transform:perspective(700px) rotateY(360deg)}}
@@ -181,7 +181,7 @@ textarea+ion-icon{top:20px;transform:none}
 .container{padding:0 20px}
 .hero-title{font-size:1.8rem}
 .section-title{font-size:1.8rem}
-.cloudy-bg{min-height:460px;border-radius:28px}
+.cloudy-bg{padding:80px 0 110px}
 .hero-content{padding:28px 20px}
 .hero-name{letter-spacing:.08em}
 .code-rain{opacity:.3}
@@ -234,7 +234,7 @@ textarea+ion-icon{top:20px;transform:none}
         <span>npm run build</span><span>return &lt;CreativeIdeas /&gt;;</span>
         <span>git commit -m "innovation"</span><span>while (learning) { grow(); }</span>
       </div>
-      <div class="hero-content">
+      <div class="hero-content" 
         <div class="dev" aria-hidden="true">
           <img class="dev-body" src="./assets/images/dev-body.png" alt="">
           <div class="dev-head">
@@ -269,7 +269,7 @@ textarea+ion-icon{top:20px;transform:none}
     <div class="about-content section-content">
       <p class="section-subtitle">About me</p>
       <h2 class="section-title">Need a Creative Product? I can Help You!</h2>
-      <p class="section-text">Hi! I'm software engineer  who has passion for building clean web applications with intuitive functionalities. I enjoy the process of turning ideas into reality using creative solutions. I'm always curious about learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have worked with creative teams, which involves daily stand-ups and communications, source control, and project management.</p>
+      <p class="section-text">Hi! I'm M Daniyal Mazhar, and I'm a developer who has passion for building clean web applications with intuitive functionalities. I enjoy the process of turning ideas into reality using creative solutions. I'm always curious about learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have worked with creative teams, which involves daily stand-ups and communications, source control, and project management.</p>
       <div class="btn-group">
         <a href="#contact" class="btn btn-primary">Hire me</a>
         <a href="./Muhammad_Daniyal_Mazhar_Full_Stack_Developer_CV.pdf" class="btn btn-primary" target="_blank">Download CV</a>
@@ -468,12 +468,24 @@ textarea+ion-icon{top:20px;transform:none}
     }, { passive: true });
     host.addEventListener('pointerleave', () => { pointerX = 0; pointerY = 0; }, { passive: true });
 
-    window.addEventListener('resize', () => {
+    // Keep globe + crystal inside the screen on any aspect ratio
+    const layout = () => {
+      const aspect = Math.max(host.clientWidth, 1) / Math.max(host.clientHeight, 1);
+      camera.position.z = Math.min(16, Math.max(8, 4.6 / (0.384 * aspect)));
+      const k = Math.min(1, (0.384 * aspect * camera.position.z) / 4.6);
+      sphere.position.x = globeGrid.position.x = cities.position.x = 2.6 * k;
+      orb.position.x = 2.5 * k;
+      gem.position.x = ring.position.x = -2.9 * k;
+    };
+    const resize = () => {
       const w = Math.max(host.clientWidth, 1), h = Math.max(host.clientHeight, 1);
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
+      layout();
       camera.updateProjectionMatrix();
-    }, { passive: true });
+    };
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
 
     const animate = (time) => {
       requestAnimationFrame(animate);
